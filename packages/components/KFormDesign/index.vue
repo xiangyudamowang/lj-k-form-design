@@ -38,10 +38,10 @@
         <!-- 上传至npm仓库lj-k-form-design -->
         <aside class="left">
           <!-- 左侧插槽：菜单栏的重新布局-->
-          <slot name="left-aside"></slot>
-          <div :class="clipFlag?'left-content':'left-content-active'" v-show="collapseFlag">
+          <slot name="lowcode-left-aside"></slot>
+          <div :class="clipFlag?'lowcode-left-content':'lowcode-left-content-active'" v-show="collapseFlag">
             <div class="left-content-top">
-              <div class="title"><h2>组件库</h2></div>
+              <div class="lowcode-title"><h2>组件库</h2></div>
               <div class="itemclip" @click="clipFlagHandle">
                 <a-icon type="paper-clip" />
               </div>
@@ -168,7 +168,7 @@ import formItemProperties from "./module/formItemProperties";
 import formProperties from "./module/formProperties";
 
 export default {
-  name: "KFormDesign",
+  name: "LjKFormDesign",
   props: {
     title: {
       type: String,
