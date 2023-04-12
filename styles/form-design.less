@@ -109,7 +109,6 @@
     // 左右栏
     aside {
       box-shadow      : 0px 0px 1px 1px @border-color;
-      width           : @left-right-width;
       height          : 100%;
       // >.left-title {
       //   padding    : 12px 10px 8px;
@@ -121,13 +120,73 @@
         height     : 100%;
         overflow   : auto;
         user-select: none;
-
+        display: flex;
         .ant-collapse-content-box {
           padding: 0;
         }
-
+        .left-aside{
+          display: flex;
+          flex-direction: column;
+          width: 50px;
+          i{
+            font-size: 25px;
+            margin-top: 5px;
+            cursor: pointer;
+          }
+          
+        }
+        .fixline{
+          width: 8px;
+          position: fixed;
+          left: 55px;
+          top: 111px;
+          border: 0.5px solid #ccc;
+        }
+        .left-content-active{
+          position: fixed;
+          width: 273px;
+          left: 55px;
+          top: 112px;
+          z-index: 1;
+          background: #fff;
+          height: 100%;
+          border-left: 1px solid #ccc;
+          border-right: 1px solid #ccc;
+          i{
+            font-size: 25px;
+            cursor: pointer;
+          }
+          .left-content-top{
+            padding: 5px;
+            display: flex;
+            .itemclip{
+              margin-left: 120px;
+            }
+            .itemclose{
+              margin-left: 10px;
+            }
+          }
+        }
+        .left-content{
+          border-left: 1px solid #e6e6e6;
+          i{
+            font-size: 25px;
+            cursor: pointer;
+          }
+          .left-content-top{
+            padding: 5px;
+            display: flex;
+            .itemclip{
+              margin-left: 120px;
+            }
+            .itemclose{
+              margin-left: 10px;
+            }
+          }
+        }
         .ant-collapse {
           border: 0;
+          width: 270px;
 
           >.ant-collapse-item {
             border-color: @border-color;
@@ -185,7 +244,7 @@
         color         : #fff;
         overflow      : hidden;
         position      : relative;
-
+        width: @left-right-width;
 
         // 控件属性设置
         .form-item-properties {
@@ -239,7 +298,7 @@
     // 中间内容区域
     section {
       flex       : 1;
-      max-width  : calc(100% - @left-right-width - @left-right-width);
+      max-width  : 3000px;
       user-select: none;
       margin     : 0 8px 0;
       box-shadow : 0px 0px 1px 1px @border-color;

@@ -105,13 +105,20 @@
             <RadioButton :value="false">静态数据</RadioButton>
             <RadioButton :value="true">动态数据</RadioButton>
           </Radio>
-
+          
           <Input
             v-show="options.dynamic"
             v-model="options.dynamicKey"
             placeholder="动态数据变量名"
           />
 
+          <!-- 下拉树组件的拓展 -->
+          <a-button @click="showModal" v-show="selectItemLabel=='下拉选择器' && options.dynamic">新增按钮</a-button>
+          <a-modal v-model="visible" title="Basic Modal" @ok="handleOk">
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </a-modal>
           <KChangeOption v-show="!options.dynamic" v-model="options.options" />
         </a-form-item>
         <!-- 选项配置及动态数据配置 end -->
@@ -628,12 +635,16 @@ export default {
           value: "9pt",
           label: "小五"
         }
-      ]
+      ],
+      visible: false,
     };
   },
   computed: {
     options() {
       return this.selectItem.options || {};
+    },
+    selectItemLabel(){
+      return this.selectItem.label || '';
     }
   },
   props: {
@@ -644,9 +655,17 @@ export default {
     hideModel: {
       type: Boolean,
       default: false
-    }
+    },
+
   },
   methods: {
+    showModal() {
+      this.visible = true;
+    },
+    handleOk(e) {
+      console.log(e);
+      this.visible = false;
+    },
     /**
      * 判断是否已定义
      * @param {*} value
@@ -654,6 +673,11 @@ export default {
     isDefined(value) {
       return typeof value !== "undefined";
     }
-  }
+  },
+  watch:{
+    options(newval){
+      console.log('newvalue',newval)
+    }
+  },
 };
 </script>

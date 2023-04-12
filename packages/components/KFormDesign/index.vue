@@ -37,25 +37,39 @@
         <!-- 左侧控件区域 start -->
         <!-- 上传至npm仓库lj-k-form-design -->
         <aside class="left">
-          <a-collapse
-            @change="collapseChange"
-            :defaultActiveKey="collapseDefaultActiveKey"
-          >
-            <!-- 基础控件 start -->
-            <a-collapse-panel
-              v-for="(item, index) in schemaGroup"
-              :header="item.title"
-              :key="index"
+          <!-- 左侧插槽：菜单栏的重新布局-->
+          <slot name="left-aside"></slot>
+          <div :class="clipFlag?'left-content':'left-content-active'" v-show="collapseFlag">
+            <div class="left-content-top">
+              <div class="title"><h2>组件库</h2></div>
+              <div class="itemclip" @click="clipFlagHandle">
+                <a-icon type="paper-clip" />
+              </div>
+              <div class="itemclose" @click="collapseFlagHandle">
+                <a-icon type="close" />
+              </div>
+            </div>
+            <a-collapse
+              @change="collapseChange"
+              :defaultActiveKey="collapseDefaultActiveKey"
             >
-              <collapseItem
-                :list="item.list"
-                @generateKey="generateKey"
-                @handleListPush="handleListPush"
-                @start="handleStart"
-              />
-            </a-collapse-panel>
-            <!-- 基础控件 end -->
-          </a-collapse>
+              <!-- 基础控件 start -->
+              <a-collapse-panel
+                v-for="(item, index) in schemaGroup"
+                :header="item.title"
+                :key="index"
+              >
+                <collapseItem
+                  :list="item.list"
+                  @generateKey="generateKey"
+                  @handleListPush="handleListPush"
+                  @start="handleStart"
+                />
+              </a-collapse-panel>
+              <!-- 基础控件 end -->
+            </a-collapse>
+          </div>
+          <div class="fixline"></div>
         </aside>
         <!-- 左侧控件区域 end -->
 
@@ -194,6 +208,11 @@ export default {
       // 隐藏数据字段
       type: Boolean,
       default: false
+    },
+    // 右侧内容包的展示
+    collapseFlag:{
+      type:Boolean,
+      default:false
     }
   },
   data() {
@@ -233,7 +252,8 @@ export default {
       },
       selectItem: {
         key: ""
-      }
+      },
+      clipFlag:false, // 控制css样式的悬浮效果
     };
   },
   components: {
@@ -274,7 +294,18 @@ export default {
     }
   },
   methods: {
+    // 控制clip的布尔值
+    clipFlagHandle(){
+      this.clipFlag=!this.clipFlag
+    },
+    // 右侧叉叉按钮
+    collapseFlagHandle(){
+      console.log(1)
+      this.clipFlag=true
+      this.$emit('collapseFlagHandle',false)
+    },
     generateKey(list, index) {
+      console.log('generateKey')
       // 生成key值
       const key = list[index].type + "_" + new Date().getTime();
       this.$set(list, index, {
@@ -288,6 +319,7 @@ export default {
       }
     },
     handleListPush(item) {
+      console.log('handleListPush',item)
       // 双击控件按钮push到list
       // 生成key值
       if (!this.selectItem.key) {
@@ -370,7 +402,9 @@ export default {
       this.handleSetSelectItem({ key: "" });
       message.success("已清空");
     },
+    // 中间区域选中组件事件
     handleSetSelectItem(record) {
+      console.log('record',record)
       // 操作间隔不能低于100毫秒
       const newTime = new Date().getTime();
       if (newTime - this.updateTime < 100) {
@@ -467,6 +501,7 @@ export default {
      * @return {*}
      */
     handleUndo() {
+      console.log(1)
       const record = revoke.undo();
       if (!record) {
         return false;
@@ -504,6 +539,7 @@ export default {
   created() {
     this.loadState = true;
     nodeSchema.addComputed(this.schemaGroup);
+    console.log('schemaGroup',this.schemaGroup)
   }
 };
 </script>
