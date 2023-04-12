@@ -121,10 +121,11 @@
         overflow   : auto;
         user-select: none;
         display: flex;
+        width: auto !important;
         .ant-collapse-content-box {
           padding: 0;
         }
-        .left-aside{
+        .lowcode-left-aside{
           display: flex;
           flex-direction: column;
           width: 50px;
@@ -138,15 +139,15 @@
         .fixline{
           width: 8px;
           position: fixed;
-          left: 55px;
-          top: 111px;
+          left: 50px;
+          top: 106px;
           border: 0.5px solid #ccc;
         }
-        .left-content-active{
+        .lowcode-left-content-active{
           position: fixed;
           width: 273px;
-          left: 55px;
-          top: 112px;
+          left: 50px;
+          top: 107px;
           z-index: 1;
           background: #fff;
           height: 100%;
@@ -167,7 +168,7 @@
             }
           }
         }
-        .left-content{
+        .lowcode-left-content{
           border-left: 1px solid #e6e6e6;
           i{
             font-size: 25px;
@@ -403,7 +404,8 @@
                 position  : relative;
                 box-sizing: border-box;
                 word-wrap : break-word;
-
+                display: flex;
+                align-items: center;
                 &::before {
                   content : "";
                   position: absolute;
@@ -413,11 +415,22 @@
                   left    : 0;
                   z-index : 888;
                 }
+                .buleline{
+                  &:before{
+                    content: '|';
+                    width:4px;
+                    height:14px;
+                    color:#1990ff;
+                    background:#1990ff;
+                    margin-right: 10px;
+                  }
+                }
 
                 .ant-form-item {
                   // 修改ant form-item的margin为padding
                   margin        : 0;
                   padding-bottom: 6px;
+                  width: 100%;
                 }
               }
 

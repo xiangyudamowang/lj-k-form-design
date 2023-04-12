@@ -1,5 +1,13 @@
+/*
+ * @Author: xiangy xiangy@longjitech.com
+ * @Date: 2023-04-11 13:27:59
+ * @LastEditors: Do not edit
+ * @LastEditTime: 2023-04-12 16:39:47
+ * @FilePath: /lj-k-form-design/packages/utils/index.js
+ * @Description: 
+ */
 // 发布npm（npm publish 时） 需要切换到这个
-export { pluginManager, revoke, nodeSchema, lazyLoadTick } from "k-form-design";
+export { pluginManager, revoke, nodeSchema, lazyLoadTick } from "lj-k-form-design";
 
 // 本地测试
 // export { pluginManager } from "./PluginManager";

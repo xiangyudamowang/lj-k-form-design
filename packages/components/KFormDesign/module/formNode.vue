@@ -13,6 +13,7 @@
     :class="{ active: record.key === selectItem.key }"
   >
     <div class="form-item-box">
+	  <div class="buleline"></div>
       <kFormItem :formConfig="config" :record="record" />
     </div>
     <div

@@ -1,9 +1,9 @@
 // 导入单个组件
-import KFormDesign from "./components/KFormDesign/index";
+import LjKFormDesign from "./components/KFormDesign/index";
 // import KFormPreview from "./KFormPreview/index";
 import KFormBuild from "./components/KFormBuild/index";
 import KFormItem from "./components/KFormItem/index";
-const components = [KFormDesign, KFormBuild, KFormItem];
+const components = [LjKFormDesign, KFormBuild, KFormItem];
 
 const install = function(Vue) {
   // use ant组件
@@ -15,12 +15,12 @@ const install = function(Vue) {
   });
 };
 
-export { KFormDesign, KFormBuild, KFormItem };
+export { LjKFormDesign, KFormBuild, KFormItem };
 
 // 这里默认导出全部组件
 export default {
   install,
-  KFormDesign,
+  LjKFormDesign,
   // KFormPreview,
   KFormBuild,
   KFormItem
