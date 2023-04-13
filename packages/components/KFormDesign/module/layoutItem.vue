@@ -554,3 +554,15 @@ export default {
   }
 };
 </script>
+<style lang="less" scoped>
+/deep/ .ant-card-head-title{
+    &:before{
+      content: '|';
+      width:4px;
+      height:14px;
+      color:#1990ff;
+      background:#1990ff;
+      margin-right: 10px;
+    }
+}
+</style>

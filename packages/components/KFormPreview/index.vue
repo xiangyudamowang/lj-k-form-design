@@ -1,25 +1,16 @@
+<!--
+ * @Author: xiangy xiangy@longjitech.com
+ * @Date: 2023-04-11 13:28:03
+ * @LastEditors: Do not edit
+ * @LastEditTime: 2023-04-13 09:40:24
+ * @FilePath: /lj-k-form-design/packages/components/KFormPreview/index.vue
+ * @Description: 
+-->
 <template>
-  <a-modal
-    title="预览"
-    :visible="visible"
-    @ok="handleGetData"
-    @cancel="handleCancel"
-    okText="获取数据"
-    cancelText="关闭"
-    style="top:20px;"
-    :destroyOnClose="true"
-    :centered="true"
-    :dialogStyle="dialogStyle"
-    :bodyStyle="bodyStyle"
-    wrapClassName="k-form-modal"
-    :width="`${previewWidth}px`"
-  >
-    <k-form-build
-      :value="jsonData"
-      @change="handleChange"
-      @submit="handleSubmit"
-      ref="KFormBuild"
-    />
+  <a-modal title="预览" :visible="visible" @ok="handleGetData" @cancel="handleCancel" okText="获取数据" cancelText="关闭"
+    style="top:20px;" :destroyOnClose="true" :centered="true" :dialogStyle="dialogStyle" :bodyStyle="bodyStyle"
+    wrapClassName="k-form-modal" :width="`${previewWidth}px`">
+    <k-form-build :value="jsonData" @change="handleChange" @submit="handleSubmit" ref="KFormBuild" />
     <jsonModel ref="jsonModel" />
   </a-modal>
 </template>
@@ -89,7 +80,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-/deep/ .ant-form-item {
+/deep/ .ant-card-head-title {
   &:before {
     content: '|';
     width: 4px;
@@ -97,7 +88,6 @@ export default {
     color: #1990ff;
     background: #1990ff;
     margin-right: 10px;
-    margin-top: 9px;
   }
 }
 </style>
