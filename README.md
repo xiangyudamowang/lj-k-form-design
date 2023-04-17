@@ -1,28 +1,14 @@
-# 表单设计器 k-form-design
+# 表单设计器 lj-k-form-design
 
-<p align="center">
-  <a href="https://github.com/vuejs/vue">
-    <img src="https://img.shields.io/badge/vue-2.6.10-brightgreen.svg" alt="vue">
-  </a>
-  <a href="https://github.com/vueComponent/ant-design-vue">
-    <img src="https://img.shields.io/badge/Ant%20Design%20Vue-1.5.1-blue" alt="ant-design-vue">
-  </a>
-  <a href="https://github.com/Kchengz/k-form-design/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
-  </a>
-</p>
 
-![](http://cdn.kcz66.com/demo.gif)
 
 ## 简介
 
+### fork于k-form-design，进行了二次开发，增加了一些插槽以及修改了布局，详细请看补充文档。
+#
+
 设计器布局参考form-generator项目，基于vue和ant-design-vue实现的表单设计器，样式使用less作为开发语言，主要功能是能通过简单操作来生成配置表单，生成可保存的JSON数据，并能将JSON还原成表单，使表单开发更简单更快速
 
-- [github](https://github.com/Kchengz/k-form-design)
-- [码云](https://gitee.com/kcz66/k-form-design)
-- [项目预览](http://cdn.kcz66.com/k-form-design.html)
-- [项目文档 Github Pages](https://kchengz.github.io/k-form-design/)
-- [项目文档 Gitee Pages 较快](http://kcz66.gitee.io/k-form-design/#/)
 
 vue3 版本中 k-form-design 已改名[ k-designer](https://gitee.com/kcz66/k-designer)
 
@@ -49,10 +35,10 @@ vue3 版本中 k-form-design 已改名[ k-designer](https://gitee.com/kcz66/k-de
 > 安装表单设计器
 
 ```cmd
-npm i k-form-design --save
+npm i lj-k-form-design --save
  
 # OR
-yarn add k-form-design
+yarn add lj-k-form-design
 ```
 
 > 安装 ant-design-vue UI ，推荐 vue2 版本最新的 1.7.8版本
@@ -72,31 +58,28 @@ yarn add ant-design-vue@1.7.8
 // 在main.js引入
 
 // 注：useComponents 需放最上面，优先注册懒加载组件
-import { useAntd } from 'k-form-design/packages/core/useComponents'
-import KFormDesign from 'k-form-design/packages/use.js'
-import 'k-form-design/lib/k-form-design.css'
+import { useAntd } from 'lj-k-form-design/packages/core/useComponents'
+import LjKFormDesign from 'lj-k-form-design/packages/use.js'
+import 'lj-k-form-design/lib/k-form-design.css'
 
 useAntd(Vue)
-Vue.use(KFormDesign)
+Vue.use(LjKFormDesign)
 ```
 
 ## 使用组件
 ``` html
 <template>
   <div>
-   <k-form-design />
+   <lj-k-form-design />
   </div>
 </template>
 ```
 
-## 交流
-点击链接加入qq群聊
+## 新增加插槽
 
-- [【k-form-desgin交流群：1020643215】](https://jq.qq.com/?_wv=1027&k=5BeoFAr) 
-- [【k-form-desgin交流二群：727396923】](https://jq.qq.com/?_wv=1027&k=uYyqQPlQ)
-
-License
----
-[MIT](https://github.com/Kchengz/k-form-design/blob/master/LICENSE)
-Copyright (c) 2019 Kchengz
-
+插槽位置|插槽名称|
+---|:--:
+左侧内容区|lowcode-left-aside
+设计器头部|header
+设计器右侧表单基础属性 |formPropertiesBase
+设计器右侧表单高级属性|formPropertiesPlus

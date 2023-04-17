@@ -1,7 +1,11 @@
 <template>
   <a-config-provider :locale="locale">
     <div class="form-designer-container-9136076486841527" v-if="loadState">
-      <k-header v-if="showHead" :title="title" />
+      <k-header v-if="showHead">
+        <template v-slot:header>
+          <slot name="header"></slot>
+        </template>
+      </k-header>
       <!-- 操作区域 start -->
       <operatingArea
         v-if="toolbarsTop"
@@ -124,11 +128,19 @@
             @change="changeTab"
             :tabBarStyle="{ margin: 0 }"
           >
+            <!-- 右侧的表单属性设置 -->
             <a-tab-pane :key="1" tab="表单属性设置">
               <formProperties
                 :config="data.config"
                 :previewOptions="previewOptions"
-              />
+              >
+              <template v-slot:formPropertiesBase>
+                <slot name="formPropertiesBase"></slot>
+              </template>
+              <template v-slot:formPropertiesPlus>
+                <slot name="formPropertiesPlus"></slot>
+              </template>
+            </formProperties>
             </a-tab-pane>
             <a-tab-pane :key="2" tab="控件属性设置">
               <formItemProperties
@@ -170,10 +182,6 @@ import formProperties from "./module/formProperties";
 export default {
   name: "LjKFormDesign",
   props: {
-    title: {
-      type: String,
-      default: "表单设计器 --by kcz"
-    },
     showHead: {
       type: Boolean,
       default: true

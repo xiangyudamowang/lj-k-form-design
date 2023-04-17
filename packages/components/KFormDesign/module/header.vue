@@ -2,19 +2,16 @@
  * @Description: 头部
  * @Author: kcz
  * @Date: 2019-12-30 00:37:05
- * @LastEditors: kcz
- * @LastEditTime: 2020-03-26 20:18:56
+ * @LastEditors: xiangy
+ * @LastEditTime: 2023-04-17 10:16:29
  -->
 <template>
-  <header class="header" v-text="title"></header>
+  <header class="header">
+    <slot name="header"></slot>
+  </header>
 </template>
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      default: "表单设计器 --by kcz"
-    }
-  }
+
 };
 </script>
