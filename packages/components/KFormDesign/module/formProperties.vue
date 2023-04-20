@@ -2,7 +2,7 @@
  * @Author: xiangy xiangy@longjitech.com
  * @Date: 2023-04-10 10:22:55
  * @LastEditors: xiangy
- * @LastEditTime: 2023-04-17 11:29:21
+ * @LastEditTime: 2023-04-20 16:45:32
  * @FilePath: /ecp-lowcode/ecp-vue/node_modules/lj-k-form-design/packages/components/KFormDesign/module/formProperties.vue
  * @Description: 在表单属性这里加入了插槽，可以在顶部进行操作
 -->
@@ -15,13 +15,13 @@
           <slot name="formPropertiesBase"></slot>
           <a-form>
             <h1>表单属性设置</h1>
-            <a-form-item label="表单布局">
+            <!-- <a-form-item label="表单布局">
               <Radio buttonStyle="solid" v-model="config.layout">
                 <RadioButton value="horizontal">水平</RadioButton>
                 <RadioButton value="vertical">垂直</RadioButton>
                 <RadioButton value="inline">行内</RadioButton>
               </Radio>
-            </a-form-item>
+            </a-form-item> -->
             <a-form-item label="标签布局（水平布局生效）">
               <Radio buttonStyle="solid" v-model="config.labelLayout">
                 <RadioButton value="flex">固定</RadioButton>

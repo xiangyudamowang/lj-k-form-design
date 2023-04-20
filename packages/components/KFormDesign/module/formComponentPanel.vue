@@ -2,8 +2,8 @@
  * @Description: 表单设计器内容展示操作组件
  * @Author: kcz
  * @Date: 2019-12-31 19:39:48
- * @LastEditors: kcz
- * @LastEditTime: 2022-11-12 00:11:55
+ * @LastEditors: xiangy
+ * @LastEditTime: 2023-04-20 16:30:04
  -->
 <template>
   <div class="form-panel">
@@ -32,7 +32,8 @@
         @add="deepClone"
         @start="dragStart($event, data.list)"
       >
-        <transition-group tag="div" name="list" class="list-main">
+      <!-- 功能要求：支持表单属性的排列布局，1-2-4，这里的list-main用grid布局，k-form-build中用formitem设置宽度实现 -->
+        <transition-group tag="div" name="list" class="list-main" :class="listmaingridFlag===1?'':listmaingridFlag===2?'list-main-grid2':listmaingridFlag===3?'list-main-grid3':'list-main-grid4'">  
           <layoutItem
             class="drag-move"
             v-for="record in data.list"
@@ -107,7 +108,7 @@ export default {
       menuTop: 0,
       menuLeft: 0,
       trIndex: 0,
-      tdIndex: 0
+      tdIndex: 0,
     };
   },
   props: {
@@ -130,6 +131,16 @@ export default {
     hideModel: {
       type: Boolean,
       default: false
+    },
+    // 是否采用grid布局
+    listmaingridFlag:{
+      type:Number,
+      default:1
+    }
+  },
+  watch:{
+    listmaingridFlag(value){
+      console.log(value)
     }
   },
   components: {
@@ -498,6 +509,7 @@ export default {
     // 添加监听取消右键菜单
     document.addEventListener("click", this.handleRemoveRightMenu, true);
     document.addEventListener("contextmenu", this.handleRemoveRightMenu, true);
+    console.log('data.config.layout',this.data.config.layout)
   },
   destroyed() {
     // 移除监听

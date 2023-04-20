@@ -110,6 +110,7 @@
             :noModel="noModel"
             :hideModel="hideModel"
             :startType="startType"
+            :listmaingridFlag="listmaingridFlag"
             ref="KFCP"
             @handleSetSelectItem="handleSetSelectItem"
           />
@@ -221,6 +222,14 @@ export default {
     collapseFlag:{
       type:Boolean,
       default:false
+    },
+    listmaingridFlag:{
+      type:Number,
+      default:1
+    },
+    listmainlayout:{
+      type:Number,
+      default:2
     }
   },
   data() {
@@ -286,6 +295,14 @@ export default {
       },
       deep: true,
       immediate: true
+    },
+    listmainlayout(value){
+      console.log(value)
+      if(value===1){
+        this.data.config.layout="horizontal"
+      }else{
+        this.data.config.layout="vertical"
+      }
     }
   },
   computed: {

@@ -18,7 +18,7 @@
 
 // 表单设计器样式
 .form-designer-container-9136076486841527 {
-  height  : 100vh;
+  height  : calc(100vh - 56px);
   width   : 100%;
   overflow: hidden;
 }
@@ -143,12 +143,12 @@
           top: 106px;
           border: 0.5px solid #ccc;
         }
-        .lowcode-left-content-active{
+        .lowcode-left-content-active{ 
           position: fixed;
           width: 273px;
           left: 50px;
           top: 107px;
-          z-index: 1;
+          z-index: 9999;
           background: #fff;
           height: 100%;
           border-left: 1px solid #ccc;
@@ -301,6 +301,7 @@
     section {
       flex       : 1;
       max-width  : 3000px;
+      // max-width: calc(100vw -570px);
       user-select: none;
       margin     : 0 8px 0;
       box-shadow : 0px 0px 1px 1px @border-color;
@@ -1041,7 +1042,39 @@
   }
 }
 
-
+.list-main-grid2{
+  display: grid;
+  grid-template-columns: repeat(2,48%);
+  grid-gap: 10px 10px;
+  align-content: start;
+  justify-content: center;
+  // max-width: calc(100vw - 570px);
+  .drag-move-box{
+    border: 1px dashed #aaa;
+  }
+}
+.list-main-grid3{
+  display: grid;
+  grid-template-columns: repeat(3,33%);
+  grid-gap: 10px 10px;
+  align-content: start;
+  justify-content: center;
+  // max-width: calc(100vw - 570px);
+  .drag-move-box{
+    border: 1px dashed #aaa;
+  }
+}
+.list-main-grid4{
+  display: grid;
+  grid-template-columns: repeat(4,23%);
+  grid-gap: 10px 10px;
+  align-content: start;
+  justify-content: center;
+  // max-width: calc(100vw - 570px);
+  .drag-move-box{
+    border: 1px dashed #aaa;
+  }
+}
 // footer样式
 // .footer-9136076486841527 {
 //   width      : 100%;
