@@ -1,16 +1,16 @@
 <!--
  * @Author: xiangy xiangy@longjitech.com
  * @Date: 2023-04-11 13:28:03
- * @LastEditors: Do not edit
- * @LastEditTime: 2023-04-13 09:40:24
- * @FilePath: /lj-k-form-design/packages/components/KFormPreview/index.vue
+ * @LastEditors: xiangy
+ * @LastEditTime: 2023-04-21 10:05:20
+ * @FilePath: /ecp-vue/node_modules/lj-k-form-design/packages/components/KFormPreview/index.vue
  * @Description: 
 -->
 <template>
   <a-modal title="预览" :visible="visible" @ok="handleGetData" @cancel="handleCancel" okText="获取数据" cancelText="关闭"
     style="top:20px;" :destroyOnClose="true" :centered="true" :dialogStyle="dialogStyle" :bodyStyle="bodyStyle"
     wrapClassName="k-form-modal" :width="`${previewWidth}px`">
-    <k-form-build :value="jsonData" @change="handleChange" @submit="handleSubmit" ref="KFormBuild" />
+    <k-form-build :listmaingridFlag="listmaingridFlag" :value="jsonData" @change="handleChange" @submit="handleSubmit" ref="KFormBuild" />
     <jsonModel ref="jsonModel" />
   </a-modal>
 </template>
@@ -23,6 +23,12 @@ import jsonModel from "../KFormDesign/module/jsonModal";
 import { dialogStyle, bodyStyle } from "../../config/modal.js";
 export default {
   name: "KFormPreview",
+  props:{
+    listmaingridFlag:{
+      type:Number,
+      default:1
+    }
+  },
   data() {
     return {
       visible: false,

@@ -115,10 +115,12 @@
             @handleSetSelectItem="handleSetSelectItem"
           />
           <!-- 操作区域 start -->
+          <!-- 生成的json文件，在布局选择1-4列的时候需要写入一个代表布局的字段，传递给后端 -->
           <k-json-modal ref="jsonModal" />
+          
           <k-code-modal ref="codeModal" />
           <importJsonModal ref="importJsonModal" />
-          <previewModal ref="previewModal" />
+          <previewModal ref="previewModal" :listmaingridFlag="listmaingridFlag" />
         </section>
         <!-- 中间面板区域 end -->
 
@@ -159,11 +161,6 @@
   </a-config-provider>
 </template>
 <script>
-/*
- * author kcz
- * date 2019-11-20
- * description 表单设计器
- */
 import kHeader from "./module/header";
 import operatingArea from "./module/operatingArea";
 

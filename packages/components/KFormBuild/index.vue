@@ -7,6 +7,7 @@
         typeof value.list !== 'undefined' && typeof value.config !== 'undefined'
       "
       class="k-form-build-9136076486841527"
+      :class="listmaingridFlag===1?'':listmaingridFlag===2?'list-main-grid2':listmaingridFlag===3?'list-main-grid3':'list-main-grid4'"
       :layout="value.config.layout"
       :hideRequiredMark="value.config.hideRequiredMark"
       :form="form"
@@ -76,6 +77,10 @@ export default {
     defaultValue: {
       type: Object,
       default: () => ({})
+    },
+    listmaingridFlag:{
+      type:Number,
+      default:1
     }
   },
   components: {
@@ -230,7 +235,7 @@ export default {
   },
   mounted() {
     this.setData(this.defaultValue);
-
+    console.log(this.value.list)
     // this.$nextTick(() => {
     //   this.setData(this.defaultValue);
     // });

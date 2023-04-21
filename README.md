@@ -83,3 +83,9 @@ Vue.use(LjKFormDesign)
 设计器头部|header
 设计器右侧表单基础属性 |formPropertiesBase
 设计器右侧表单高级属性|formPropertiesPlus
+
+## 新增属性
+属性名|属性作用以及默认值|
+---|:--: 
+listmaingridFlag|布局的时候选择1-2-4列，默认为1，传递1表示1列，2表示2列，3表示3列，4表示4列
+listmainlayout|布局表单中的label位置，默认为左，传递1表示左，传递2表示上

@@ -1,6 +1,6 @@
 {
   "name": "lj-k-form-design",
-  "version": "3.8.9",
+  "version": "3.8.11",
   "private": false,
   "description": "fork于k-form-design,进行了二次开发,基于vue、ant-design-vue的表单设计器,可视化开发表单",
   "license": "MIT",
